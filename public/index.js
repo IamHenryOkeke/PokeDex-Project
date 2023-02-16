@@ -16,7 +16,7 @@ const populatePokemon = (data) => {
     pokemonImg.src = `${data.imgSrc}`
     pokemonImg.classList.add("h-[300px]", "md:h-[400px]")
     pokemonName.textContent = data.name
-    pokemonName.classList.add("text-3xl","md:text-5xl", "text-red-500")
+    pokemonName.classList.add("text-3xl", "md:text-5xl", "text-red-500")
     speciesText.textContent = "Species"
     pokemonBaseExperience.textContent = `Base Experience: ${data.base_exp}EXP`
     pokemonHeight.textContent = `Height: ${data.height}`
@@ -36,7 +36,7 @@ const getNeededData = (data) => {
         name: data.name,
         height: data.height,
         weight: data.weight,
-        base_exp : data.base_experience
+        base_exp: data.base_experience
     }
 }
 
@@ -47,22 +47,21 @@ const getPokemonData = () => {
         : (pokemonName = document.querySelector("input").value);
     const apiURL = `https://pokeapi.co/api/v2/pokemon/${pokemonName}`
     loading.classList.replace("hidden", "flex")
-    setTimeout(() => {
-        fetch(apiURL)
-            .then(res =>
-                res.json()
-            ).then(data => {
-                console.log(data)
-                pokemonContainer.classList.replace("hidden", "flex")
-                pokemonDetailsContainer.innerHTML = ""
-                pokemonImageContainer.innerHTML = ""
-                populatePokemon(getNeededData(data))
-            }
-            ).catch(err => {
-                console.log(err.message)
-            })
-        loading.classList.replace("flex", "hidden")
-    }, 1000)
+    fetch(apiURL)
+        .then(res =>
+            res.json()
+        ).then(data => {
+            console.log(data)
+            loading.classList.replace("flex", "hidden")
+            pokemonContainer.classList.replace("hidden", "flex")
+            pokemonDetailsContainer.innerHTML = ""
+            pokemonImageContainer.innerHTML = ""
+            populatePokemon(getNeededData(data))
+        }
+        ).catch(err => {
+            console.log(err)
+
+        })
 }
 
 searchBtn.addEventListener("click", getPokemonData)
