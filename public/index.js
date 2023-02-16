@@ -1,5 +1,6 @@
 const searchBtn = document.getElementById("search")
 const loading = document.getElementById("loading")
+const pokemonContainer = document.getElementById("pokemon-container")
 const pokemonDetailsContainer = document.getElementById("pokemon-details-container")
 const pokemonImageContainer = document.getElementById("pokemon-image-container")
 
@@ -13,9 +14,9 @@ const populatePokemon = (data) => {
 
 
     pokemonImg.src = `${data.imgSrc}`
-    pokemonImg.classList.add("h-[400px]")
+    pokemonImg.classList.add("h-[300px]", "md:h-[400px]")
     pokemonName.textContent = data.name
-    pokemonName.classList.add("text-5xl", "text-red-500")
+    pokemonName.classList.add("text-3xl","md:text-5xl", "text-red-500")
     speciesText.textContent = "Species"
     pokemonBaseExperience.textContent = `Base Experience: ${data.base_exp}EXP`
     pokemonHeight.textContent = `Height: ${data.height}`
@@ -52,6 +53,7 @@ const getPokemonData = () => {
                 res.json()
             ).then(data => {
                 console.log(data)
+                pokemonContainer.classList.replace("hidden", "flex")
                 pokemonDetailsContainer.innerHTML = ""
                 pokemonImageContainer.innerHTML = ""
                 populatePokemon(getNeededData(data))
