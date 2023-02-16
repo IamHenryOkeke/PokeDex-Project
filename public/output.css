@@ -567,6 +567,10 @@ video {
   height: 400px;
 }
 
+.h-\[\]{
+  height: ;
+}
+
 .w-1\/5{
   width: 20%;
 }
@@ -589,6 +593,22 @@ video {
 
 .w-\[60\%\]{
   width: 60%;
+}
+
+.w-\[\]{
+  width: ;
+}
+
+.w-\[400px\]{
+  width: 400px;
+}
+
+.w-1\/2{
+  width: 50%;
+}
+
+.w-1{
+  width: 0.25rem;
 }
 
 @keyframes spin{
@@ -693,29 +713,14 @@ video {
   line-height: 2rem;
 }
 
-.text-7xl{
-  font-size: 4.5rem;
-  line-height: 1;
-}
-
-.text-4xl{
-  font-size: 2.25rem;
-  line-height: 2.5rem;
-}
-
-.text-6xl{
-  font-size: 3.75rem;
-  line-height: 1;
+.text-3xl{
+  font-size: 1.875rem;
+  line-height: 2.25rem;
 }
 
 .text-5xl{
   font-size: 3rem;
   line-height: 1;
-}
-
-.text-3xl{
-  font-size: 1.875rem;
-  line-height: 2.25rem;
 }
 
 .text-xl{
@@ -741,14 +746,14 @@ video {
   color: rgb(239 68 68 / var(--tw-text-opacity));
 }
 
-.text-white{
-  --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity));
-}
-
 .text-slate-400{
   --tw-text-opacity: 1;
   color: rgb(148 163 184 / var(--tw-text-opacity));
+}
+
+.text-white{
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
 .transition{
@@ -780,5 +785,34 @@ video {
   .dark\:text-gray-600{
     --tw-text-opacity: 1;
     color: rgb(75 85 99 / var(--tw-text-opacity));
+  }
+}
+
+@media (min-width: 768px){
+  .md\:h-\[400px\]{
+    height: 400px;
+  }
+
+  .md\:w-\[500px\]{
+    width: 500px;
+  }
+
+  .md\:w-1\/5{
+    width: 20%;
+  }
+
+  .md\:text-2xl{
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+
+  .md\:text-5xl{
+    font-size: 3rem;
+    line-height: 1;
+  }
+
+  .md\:text-3xl{
+    font-size: 1.875rem;
+    line-height: 2.25rem;
   }
 }
